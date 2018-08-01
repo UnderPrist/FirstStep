@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Test1
 
@@ -11,29 +7,40 @@ namespace Test1
     {
         static void Main(string[] args)
         {
-            
+            var chislo1 = 1;
+            var continued = true;
+            do
             {
-                Console.WriteLine("Vvedite chislo ot 1 do 3 ili 'N' dlya zaversheniya");
+                Console.WriteLine("Vvedite chislo ot 1 do 3 ili 0 dlya zaversheniya");
                 var chislo = Console.ReadLine();
-                var chislo1 = 1;
-                if (chislo == "1")
+                var chisloint = int.Parse(chislo);
+                if (chisloint == 0)
+                {
+                    continued = false;
+                }
+                if (chisloint == 1)
                 {
                     Console.WriteLine("Vvedite lyuboe chislo");
                     var input = Console.ReadLine();
                     chislo1 = Convert.ToInt32(input);
                 }
-                else if (chislo == "2")
+                else if (chisloint == 2)
                 {
                     Console.WriteLine("Vvedennoe chislo x10 =");
-                    Console.WriteLine(chislo1 * 10);
+                    var chislo2 = chislo1;
+                    Console.WriteLine(chislo2 * 10);
+                }
+                else if (chisloint == 3)
+                {
+                    Console.WriteLine("Tekuschaya data:");
+                    Console.WriteLine(DateTime.Today);
                 }
                 else
                 {
-                    Console.WriteLine("Tekuschaya data:");
-                    Console.WriteLine(chislo1);
+                    Console.WriteLine("Nepravilnoye chislo");
                 }
             }
-            while (Console.ReadKey().Key != ConsoleKey.Escape);
+            while (continued == true);
         }
     }
 }
